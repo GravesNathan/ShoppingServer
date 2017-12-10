@@ -77,9 +77,7 @@ public class MyServlet extends HttpServlet {
                     String username=request.getParameter("username");
                     String password=request.getParameter("password");
                     MemberControl member = new MemberControl();
-                    out.println("<h2>Test message</h2>");
                     member.addMember(username, password);
-                    out.println("<h2>Test message2</h2>");
                     //If I get this to work then just add in the hibernate thing for database.
                 }else{
                     String user=request.getParameter("user");
@@ -87,7 +85,6 @@ public class MyServlet extends HttpServlet {
                 }
             } 
             } finally {
-                out.println("<h2>Test message3</h2>");
                 out.close();
             }
         }
