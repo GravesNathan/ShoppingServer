@@ -9,6 +9,7 @@ import main.HibernateUtil;
 import java.util.Random;
 import model.Members;
 import main.HibernateUtil;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 /**
@@ -50,13 +51,18 @@ public class MemberControl {
 //        session.close();
 //    }
     
-    public void addMember(String username, String password, double wallet, String cart){//Add new member, call from controller.
-        member = new Members(username, password, wallet, cart);
+    public void addMember(String username, String password){//Add new member, call from controller.
+        member = new Members(username, password);
+        System.out.println("Just added to model.");
+    try{
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(member);
         session.getTransaction().commit();
+        session.flush();
         session.close();
+    } catch (HibernateException ex){
+    }
     }
     
     public String getName(){
@@ -64,6 +70,8 @@ public class MemberControl {
         session.beginTransaction();
         member = (Members) session.get(Members.class, 1);
         this.username = member.getUsername();
+        session.flush();
+        session.close();
         return username;
     }
     

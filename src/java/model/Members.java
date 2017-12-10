@@ -21,8 +21,9 @@ public class Members {
 
    public Members(){}//General constructor
 
-    public Members(String username, String password, double wallet, String cart) {//Add new Member Constructor, may not use...we'll see
+    public Members(String username, String password) {//Add new Member Constructor, may not use...we'll see
       this.username = username;
+      this.password = password;
    }
 
     public int getMember_id() {

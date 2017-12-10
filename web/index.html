@@ -105,5 +105,12 @@ and open the template in the editor.
 	</div>
 	<button type = "submit" name="signupSubmit">Submit</button>
         </form>
+        
+        <form method="post" action="shopping"><!--form action must match web.xml file. It is also used to show what shows up after the / in url-->
+            username <input type="text" name="username" >
+            password <input type="text" name="password" >        
+        <input type="submit" name="shopping" value="Submit"><!--form name can be used to get parameters to see what button was clicked.-->
+            
+        </form>
     </body>
 </html>
