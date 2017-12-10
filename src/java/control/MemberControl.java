@@ -35,19 +35,23 @@ public class MemberControl {
     private String tempName;
     private HibernateUtil helper;
     private Session session;
-    private String name;
+    private String username;
 
-    public MemberControl() {
-        tempName = createName();
-        addMember(tempName);
+    public MemberControl() {//General Constructor
     }
     
-    public MemberControl(String username){
-        addMember(username);
-    }
+//    public MemberControl(String username, String password, double wallet, String cart){//Add new member constructor, may not use...we'll see
+//        //I am concerned about if this consturctor is ever called when we aren't trying to add a member so let's separate it out.
+//        member = new Members(username);
+//        session = helper.getSessionFactory().openSession();
+//        session.beginTransaction();
+//        session.save(member);
+//        session.getTransaction().commit();
+//        session.close();
+//    }
     
-    public void addMember(String name){
-        member = new Members(name);
+    public void addMember(String username, String password, double wallet, String cart){//Add new member, call from controller.
+        member = new Members(username, password, wallet, cart);
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(member);
@@ -59,8 +63,8 @@ public class MemberControl {
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         member = (Members) session.get(Members.class, 1);
-        this.name = member.getName();
-        return name;
+        this.username = member.getUsername();
+        return username;
     }
     
     private String createName() {

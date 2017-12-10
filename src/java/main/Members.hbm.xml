@@ -40,10 +40,13 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-mapping>
-  <class name="model.Members" catalog="hibernate_db" table="members">
-  <id name="id" type="java.lang.Integer" column="id">
+  <class name="model.Members" catalog="shopping_db" table="members">
+  <id name="member_id" type="java.lang.Integer" column="id">
       <generator class="identity"/>
   </id>
-  <property name="name" type="string" column="name"/>
+    <property name="username" type="string" column="username"/>
+    <property name="password" type="string" column="password"/>
+    <property name="wallet" type="double" column="wallet"/>
+    <property name="cart" type="string" column="cart"/>
   </class>
 </hibernate-mapping>

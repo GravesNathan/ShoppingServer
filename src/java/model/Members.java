@@ -12,28 +12,57 @@ package model;
  */
 public class Members {
 
-   private int id;
-   private String name; 
+    private int member_id;
+    private String username; 
+    private String password;
+    private double wallet;
+    private String cart;//May need to change type for larger strings if there is one.
+    //This will store potentially large strings of JSON for their existing cart.
 
-   public Members(){}
-   
-   public Members(String name) {
-      this.name = name;
+   public Members(){}//General constructor
+
+    public Members(String username, String password, double wallet, String cart) {//Add new Member Constructor, may not use...we'll see
+      this.username = username;
    }
-   
-   public int getId() {
-      return id;
-   }
-   
-   public void setId( int id ) {
-      this.id = id;
-   }
-   
-   public String getName() {
-      return name;
-   }
-   
-   public void setName( String name ) {
-      this.name = name;
-   }
+
+    public int getMember_id() {
+        return member_id;
+    }
+
+    public void setMember_id(int member_id) {
+        this.member_id = member_id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public double getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
+    }
+
+    public String getCart() {
+        return cart;
+    }
+
+    public void setCart(String cart) {
+        this.cart = cart;
+    }
+    
 }
