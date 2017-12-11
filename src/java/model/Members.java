@@ -18,6 +18,7 @@ public class Members {
     private double wallet;
     private String cart;//May need to change type for larger strings if there is one.
     //This will store potentially large strings of JSON for their existing cart.
+    private String returnStr;
 
    public Members(){}//General constructor
 

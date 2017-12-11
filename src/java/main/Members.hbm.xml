@@ -41,7 +41,7 @@ Contributor(s):
 -->
 <hibernate-mapping>
   <class name="model.Members" catalog="shopping_db" table="members">
-  <id name="member_id" type="java.lang.Integer" column="id">
+  <id name="member_id" type="java.lang.Integer" column="member_id">
       <generator class="identity"/>
   </id>
     <property name="username" type="string" column="username"/>

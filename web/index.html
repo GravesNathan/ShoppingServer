@@ -6,111 +6,19 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Shopping Center</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h4>Click here to demo my first <a href="hello">Servlet Page</a></h4>
-        
-        <h4>Testing a link to <a href="check">check page</a></h4>
-        
-        <form method="post" action="check">
-            Name <input type="text" name="user" >
-            <input type="submit" value="Submit">
-        </form>
-        
-        <form method="post" action="hello">
-            HelloWord <input type="text" name="user" >
-            <input type="submit" value="Submit">
-        </form>
-        
-        <h1>My Form</h1>
-        <!--action must match xml url-pattern-->
-        <form method="post" action="signup">
-	<label>First Name:<input type="text" name="firstName" placeholder="John" required></label>
-	<label for="LName">Last Name:</label>
-	<input type="text" id="LName" name="lastName" placeholder="Smith" required>
-	<div>
-	<label for="Male">Male:</label>
-	<input type="radio" id="Male" name="gender">
-	<label for="Female">Female:</label>
-	<input type="radio" id="Female" name="gender">
-	<label for="Other">Other:</label>
-	<input type="radio" id="Other" name="gender">
-	</div>
-
-	<div>
-	<label>Email:<input type="email" name="email" placeholder="your email"></label>
-	<label for="Password">Password:</label>
-	<input type="password" id="Password"  pattern=.{5,10} required title="Password Must be between 5 and 10 characters" name="password">
-	</div>
-        <div>
-            <label for="age">Age:</label>
-            <input type="number" name="age" required>
-        </div>
-
-	<div>
-	<label>Birthday:</label>
-	<select name="month">
-		<option>Month</option>
-		<option>Jan</option>
-		<option>Feb</option>
-		<option>Mar</option>
-		<option>Apr</option>
-                <option>May</option>
-		<option>Jun</option>
-		<option>Jul</option>
-		<option>Aug</option>
-                <option>Sep</option>
-		<option>Oct</option>
-		<option>Nov</option>
-		<option>Dec</option>
-	</select>
-	<select name="day">
-		<option>Day</option>
-		<option>1</option>
-		<option>2</option>
-		<option>3</option>
-		<option>5</option>
-		<option>6</option>
-		<option>7</option>
-		<option>8</option>
-		<option>9</option>
-		<option>10</option>
-               	<option>11</option>
-		<option>12</option>
-		<option>13</option>
-		<option>15</option>
-		<option>16</option>
-		<option>17</option>
-		<option>18</option>
-		<option>19</option>
-		<option>20</option>
-              	<option>21</option>
-		<option>22</option>
-		<option>23</option>
-		<option>25</option>
-		<option>26</option>
-		<option>27</option>
-		<option>28</option>
-		<option>29</option>
-		<option>30</option>
-		<option>31</option>
-	</select>
-	</div>
-	<div>
-	<label for="Agree">I agree to the terms and conditions</label>
-	<input type="checkbox" id="Agree" name="Agree" value="Agree" required>
-	</div>
-	<button type = "submit" name="signupSubmit">Submit</button>
-        </form>
-        
-        <form method="post" action="shopping"><!--form action must match web.xml file. It is also used to show what shows up after the / in url-->
+        <form method="post" action="create"><!--form action must match web.xml file. It is also used to show what shows up after the / in url-->
             username <input type="text" name="username" >
             password <input type="text" name="password" >        
-        <input type="submit" name="shopping" value="Submit"><!--form name can be used to get parameters to see what button was clicked.-->
-            
+        <input type="submit" name="create" value="Sign Up"><!--form name can be used to get parameters to see what button was clicked.-->
+        </form>
+        
+        <form method="post" action="getInfo"><!--form action must match web.xml file. It is also used to show what shows up after the / in url-->       
+        <input type="submit" name="getInfo" value="Get Info"><!--form name can be used to get parameters to see what button was clicked.-->
         </form>
     </body>
 </html>

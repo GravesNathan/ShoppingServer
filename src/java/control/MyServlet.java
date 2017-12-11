@@ -52,27 +52,7 @@ public class MyServlet extends HttpServlet {
            response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
             try {
-                String buttonPress = request.getParameter("signupSubmit");
-                //if this isn't null then button with signupSubmit name was pressed
-                if (buttonPress != null){
-                    String firstName = request.getParameter("firstName");
-                    String lastName = request.getParameter("lastName");
-                    int age = parseInt(request.getParameter("age"));
-                    int yearsLeft = 18 - age;
-                    if (age <18){
-                        out.println("<p>Thank you for your interst. Sadly"
-                                + " you must be at least 18 years old to enroll."
-                                + " You stated that you were only "+age+" years old."
-                                + " Plese wait "+yearsLeft+ " more years before enrolling.");
-                    }
-                    else{
-                    out.println("<h2> Thank you for enrolling "+firstName +" "+ lastName +".");
-                    out.println("<p>You've just taken a very important step in your career."
-                            + "  By the time you finish with us you'll be certified to"
-                            + " work at some job somewhere.  Isn't that Great!</p>");
-                    }
-                } else {
-                buttonPress = request.getParameter("shopping");
+                String buttonPress = request.getParameter("create");
                 if (buttonPress != null){
                     String username=request.getParameter("username");
                     String password=request.getParameter("password");
@@ -80,10 +60,23 @@ public class MyServlet extends HttpServlet {
                     member.addMember(username, password);
                     //If I get this to work then just add in the hibernate thing for database.
                 }else{
-                    String user=request.getParameter("user");
-                    out.println("<h2> Welcome "+user+ " </h2>");
+                    buttonPress = request.getParameter("getInfo");
+                    if (buttonPress != null){
+                        MemberControl member = new MemberControl();
+                        String memberInfo = member.getMember();
+//                        String username=request.getParameter("username");
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<head>");
+                        out.println("<title>Servlet MyServlet</title>");            
+                        out.println("</head>");
+                        out.println("<body>");
+                        out.println("<h1>Member Info</h1>");
+                        out.println("<p>" + memberInfo +"</p>");
+                        out.println("</body>");
+                        out.println("</html>");
+                    }
                 }
-            } 
             } finally {
                 out.close();
             }

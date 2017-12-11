@@ -37,6 +37,9 @@ public class MemberControl {
     private HibernateUtil helper;
     private Session session;
     private String username;
+    private String password;
+    private double wallet;
+    private String cart;
 
     public MemberControl() {//General Constructor
     }
@@ -65,14 +68,21 @@ public class MemberControl {
     }
     }
     
-    public String getName(){
+//    public String getMember(){
+    public String getMember(){
+    try{
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
         member = (Members) session.get(Members.class, 1);
         this.username = member.getUsername();
+        this.password = member.getPassword();
+        this.wallet = member.getWallet();
+        this.cart = member.getCart();
         session.flush();
         session.close();
-        return username;
+    } catch (HibernateException ex){}
+        String toReturn = "username: " + username +" wallet: "+ wallet +" cart: "+ cart;
+        return toReturn;
     }
     
     private String createName() {
@@ -85,7 +95,7 @@ public class MemberControl {
         }
         String saltStr = salt.toString();
         return saltStr;
-
     }
+    
     
 }
