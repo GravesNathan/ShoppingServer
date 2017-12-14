@@ -63,7 +63,8 @@ public class MyServlet extends HttpServlet {
                     buttonPress = request.getParameter("getInfo");
                     if (buttonPress != null){
                         MemberControl member = new MemberControl();
-                        String memberInfo = member.getMember();
+                        int member_id = parseInt(request.getParameter("member_id"));
+                        String memberInfo = member.getMember(member_id);
 //                        String username=request.getParameter("username");
                         out.println("<!DOCTYPE html>");
                         out.println("<html>");
@@ -71,10 +72,11 @@ public class MyServlet extends HttpServlet {
                         out.println("<title>Servlet MyServlet</title>");            
                         out.println("</head>");
                         out.println("<body>");
-                        out.println("<h1>Member Info</h1>");
+                        out.println("<h1>The member with a member_id of "+ member_id + " is below.</h1>");
                         out.println("<p>" + memberInfo +"</p>");
                         out.println("</body>");
                         out.println("</html>");
+                        
                     }
                 }
             } finally {

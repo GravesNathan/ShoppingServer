@@ -69,18 +69,21 @@ public class MemberControl {
     }
     
 //    public String getMember(){
-    public String getMember(){
+    public String getMember(int member_id) {
     try{
         session = helper.getSessionFactory().openSession();
         session.beginTransaction();
-        member = (Members) session.get(Members.class, 1);
+        member = (Members) session.get(Members.class, member_id);
         this.username = member.getUsername();
         this.password = member.getPassword();
         this.wallet = member.getWallet();
         this.cart = member.getCart();
         session.flush();
         session.close();
-    } catch (HibernateException ex){}
+    } catch (HibernateException ex){
+        String toReturn = "We ran into a query error.  Please ensure the correct member_id was entered";
+        return toReturn;
+    }
         String toReturn = "username: " + username +" wallet: "+ wallet +" cart: "+ cart;
         return toReturn;
     }

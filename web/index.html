@@ -12,12 +12,13 @@ and open the template in the editor.
     </head>
     <body>
         <form method="post" action="create"><!--form action must match web.xml file. It is also used to show what shows up after the / in url-->
-            username <input type="text" name="username" >
-            password <input type="text" name="password" >        
+            username <input required type="text" name="username" >
+            password <input required type="text" name="password" >        
         <input type="submit" name="create" value="Sign Up"><!--form name can be used to get parameters to see what button was clicked.-->
         </form>
         
-        <form method="post" action="getInfo"><!--form action must match web.xml file. It is also used to show what shows up after the / in url-->       
+        <form method="post" action="getInfo"><!--form action must match web.xml file. It is also used to show what shows up after the / in url-->  
+            member_id <input required type="text" name="member_id">
         <input type="submit" name="getInfo" value="Get Info"><!--form name can be used to get parameters to see what button was clicked.-->
         </form>
     </body>
